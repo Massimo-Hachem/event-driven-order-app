@@ -1,0 +1,30 @@
+version: 0.2
+
+env:
+  variables:
+    IMAGE_NAME: "api-service"
+  parameter-store:
+    ECR_URI: "/infra/api/ecr-uri"  # Optional: if using SSM for dynamic lookups
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_URI
+  build:
+    commands:
+      - echo Building Docker image...
+      - docker build -t $IMAGE_NAME .
+      - docker tag $IMAGE_NAME:latest $ECR_URI/$IMAGE_NAME:latest
+  post_build:
+    commands:
+      - echo Pushing Docker image...
+      - docker push $ECR_URI/$IMAGE_NAME:latest
+      - echo Writing imagedefinitions.json...
+      - printf '[{"name":"%s","imageUri":"%s"}]' "$IMAGE_NAME" "$ECR_URI/$IMAGE_NAME:latest" > imagedefinitions.json
+artifacts:
+  files:
+    - imagedefinitions.json

